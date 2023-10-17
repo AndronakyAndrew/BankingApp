@@ -15,7 +15,7 @@ namespace BankingApp
 
         public BankAccount() { }
 
-        public BankAccount(string accountNumber, string accountHolder, decimal balance)
+        public BankAccount(string accountNumber,string accountHolder, decimal balance)
         {
             this.AccountNumber = accountNumber;
             this.AccountHolder = accountHolder;

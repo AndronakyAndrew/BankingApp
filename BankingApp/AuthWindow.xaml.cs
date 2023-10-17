@@ -24,6 +24,7 @@ namespace BankingApp
             InitializeComponent();
         }
 
+        //Функционал для кнопки авторизации и проверка введенных данных от пользователя в базе данных
         private void btn_Auth_Click(object sender, RoutedEventArgs e)
         {
             string login = Loginbox.Text.Trim();
@@ -49,6 +50,9 @@ namespace BankingApp
                 if(user != null)
                 {
                     MessageBox.Show("Вы успешно авторизовались!");
+                    UserAccount userAccount = new UserAccount();
+                    userAccount.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -57,6 +61,7 @@ namespace BankingApp
             }
         }
 
+        //Функционал для кнопки перехода на окно регистрации
         private void btn_Reg_Click(object sender, RoutedEventArgs e)
         {
             RegistrationWindow registrationWindow = new RegistrationWindow();

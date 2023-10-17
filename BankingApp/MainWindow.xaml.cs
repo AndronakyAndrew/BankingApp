@@ -30,6 +30,7 @@ namespace BankingApp
             db = new ApplicationContext();
         }
 
+        //Функционал для кнопки перехода на окно авторизации
         private void btn_Auth_window_click(object sender, RoutedEventArgs e)
         {
             AuthWindow authWindow = new AuthWindow();
@@ -37,6 +38,7 @@ namespace BankingApp
             this.Hide();
         }
 
+        //Функционал для кнопки регистрации и проверка введенных данных от пользователя
         private void btn_Reg_Click(object sender, RoutedEventArgs e)
         {
             string login = Loginbox.Text.Trim();
@@ -77,15 +79,15 @@ namespace BankingApp
 
                 MessageBox.Show("Регистрация прошла успешно!");
 
+                //Создание нового пользователя и добавление его в базу данных
                 User user = new User(login, password, email);
 
                 db.Users.Add(user);
                 db.SaveChanges();
 
-                AuthWindow authWindow = new AuthWindow();
-                authWindow.Show();
+                UserAccount userAccount = new UserAccount();
+                userAccount.Show();
                 this.Hide();
-
             }
         }
     }
